@@ -71,6 +71,47 @@ def play_one_move(col, row, valid_directions):
         victory = is_victory(col, row)
     return victory, col, row
 
+def coin_reader(some_input):
+    coins = 1
+    some_input = some_input.lower()
+    if some_input == 'y':
+        return coins
+    else:
+        return None
+
+ 
+def coin_lever(col, row):
+    my_coins = 0
+    counter1 = 0
+    counter2 = 0
+    counter3 = 0
+    counter4 = 0
+    if col == 1 and row == 2:
+        counter1 += 1
+        if counter1 <= 0:    
+            coin_input = input("Pull a lever (y/n): ")
+            my_coins = coin_reader(coin_input)
+
+    elif col == 2 and row == 2:
+        counter2 += 1
+        if counter2 <= 0:    
+            coin_input = input("Pull a lever (y/n): ")
+            my_coins = coin_reader(coin_input)
+
+    elif col == 2 and row == 3:
+        counter3 += 1
+        if counter3 <= 0:
+            coin_input = input("Pull a lever (y/n): ")
+            my_coins = coin_reader(coin_input)
+
+    elif col == 3 and row == 2:
+        counter4 += 1
+        if counter4 <= 0:
+            coin_input = input("Pull a lever (y/n): ")
+            my_coins = coin_reader(coin_input)
+
+
+
 # The main program starts here
 victory = False
 row = 1
