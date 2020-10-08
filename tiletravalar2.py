@@ -71,13 +71,58 @@ def play_one_move(col, row, valid_directions):
         victory = is_victory(col, row)
     return victory, col, row
 
+
+
+def coin_lever(col, row, total_coins):
+    coin_input = ''
+    if col == 1 and row == 2:
+        while coin_input != "n":
+            coin_input = input("Pull a lever (y/n): ")
+            coin_input = coin_input.lower()
+            if coin_input == "y":
+                total_coins += 1
+                print("You received 1 coin, your total is now {}.".format(total_coins))
+                break
+                
+    elif col == 2 and row == 2:
+        while coin_input != "n":
+            coin_input = input("Pull a lever (y/n): ")
+            coin_input = coin_input.lower()
+            if coin_input == "y":
+                total_coins += 1
+                print("You received 1 coin, your total is now {}.".format(total_coins))
+                break
+                
+    elif col == 2 and row == 3:
+        while coin_input != "n":
+            coin_input = input("Pull a lever (y/n): ")
+            coin_input = coin_input.lower()
+            if coin_input == "y":
+                total_coins += 1
+                print("You received 1 coin, your total is now {}.".format(total_coins))
+                break
+                
+    elif col == 3 and row == 2:
+        while coin_input != "n":
+            coin_input = input("Pull a lever (y/n): ")
+            coin_input = coin_input.lower()
+            if coin_input == "y":
+                total_coins += 1
+                print("You received 1 coin, your total is now {}.".format(total_coins))
+                break
+    return total_coins
+                
+    
+
 # The main program starts here
 victory = False
 row = 1
 col = 1
+total_coins = 0
 
 while not victory:
     valid_directions = find_directions(col, row)
     print_directions(valid_directions)
     victory, col, row = play_one_move(col, row, valid_directions)
-print("Victory!")
+    total_coins = coin_lever(col, row, total_coins)
+print("Victory! Total coins {}.".format(total_coins))
